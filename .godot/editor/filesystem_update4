@@ -1,9 +1,15 @@
 res://scenes/game.tscn
+res://scripts/game.gd
 res://prefabs/knight.tscn
 res://prefabs/tile_map.tscn
 res://prefabs/obstacle_2.tscn
 res://prefabs/game_over.tscn
 res://prefabs/hud.tscn
 res://prefabs/obstacle_3.tscn
-res://scripts/game.gd
+res://scripts/hurtbox.gd
+res://prefabs/obstacle_1.tscn
+res://scripts/ground_obstacles.gd
 res://scripts/obstacle.gd
+res://prefabs/blood_particles.tscn
+res://scripts/blood.gd
+res://prefabs/obstacle_4.tscn

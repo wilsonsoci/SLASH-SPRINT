@@ -1,37 +1,43 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1731767320
-README.md::TextFile::-1::1731767223::0::1::::<><>::
+::res://::1731807953
+README.md::TextFile::-1::1731773396::0::1::::<><>::
 ::res://fonts/::1731514004
 Pixeled.ttf::FontFile::7050972267895950297::1731514002::1731514004::1::::<><>::
-::res://prefabs/::1731711409
-game_over.tscn::PackedScene::3517967626788981007::1731711409::0::1::::<><>::uid://c7psqoppvy46x::::res://fonts/Pixeled.ttf<>res://scripts/game_over.gd
-hud.tscn::PackedScene::6219845505885700854::1731711409::0::1::::<><>::uid://c7psqoppvy46x::::res://fonts/Pixeled.ttf
-knight.tscn::PackedScene::2206971818115730691::1731711409::0::1::::<><>::uid://c2mcemanx3qu6::::res://sprites/knight/_Run.png<>res://scripts/knight.gd<>uid://dk8yj3jnyksft::::res://sprites/knight/_Idle.png<>uid://bvtq0t8bg1nru::::res://sounds/jump.wav<>uid://b4wvxt1irdtlk::::res://sprites/knight/_JumpFallInbetween.png<>uid://d1lj77tek44sk::::res://sprites/knight/_Fall.png<>uid://b2x7mw3jwu0v1::::res://sprites/knight/_Jump.png<>uid://nsos56t1nckb::::res://sprites/knight/_Attack.png<>uid://byfpqa72qc4nd::::res://sprites/knight/_Attack2.png<>uid://dmgdog008jkfs::::res://sprites/knight/_Slide.png<>uid://ygitahfjchbi::::res://sprites/knight/_SlideTransitionStart.png<>res://scripts/hitbox.gd<>uid://dxvylffahpl2h::::res://sounds/slide.wav<>uid://bjw6djoxc110y::::res://sprites/knight/Dust Particle.png<>uid://crj18ip7bit25::::res://sounds/slash.wav
-obstacle_1.tscn::PackedScene::8255550939066896319::1731688722::0::1::::<><>::uid://bswmeaka2noa2::::res://prefabs/tile_map.tscn<>uid://dotx4s10su7hn::::res://sprites/tile_map/Foreground/Tileset.png<>uid://cnbksh0m07brj::::res://sprites/tile_map/Foreground/Trees.png
-obstacle_2.tscn::PackedScene::4804742941936372836::1731711409::0::1::::<><>::uid://bswmeaka2noa2::::res://prefabs/tile_map.tscn<>uid://dotx4s10su7hn::::res://sprites/tile_map/Foreground/Tileset.png<>uid://cnbksh0m07brj::::res://sprites/tile_map/Foreground/Trees.png
-obstacle_3.tscn::PackedScene::3533548992778952636::1731711409::0::1::::<><>::uid://byishrmfmcrac::::res://sprites/enemies/flying eye/fly-eye.png<>res://scripts/obstacle.gd<>res://scripts/hurtbox.gd<>uid://bjw6djoxc110y::::res://sprites/knight/Dust Particle.png
-tile_map.tscn::PackedScene::3695971942340468587::1731711409::0::1::::<><>::uid://dotx4s10su7hn::::res://sprites/tile_map/Foreground/Tileset.png<>uid://cnbksh0m07brj::::res://sprites/tile_map/Foreground/Trees.png
-::res://scenes/::1731711409
-game.tscn::PackedScene::8747762989000832238::1731711409::0::1::::<><>::res://scripts/game.gd<>uid://mv16j5xjmnjr::::res://sounds/240 Bits Per Mile.mp3<>res://scripts/parallax_background.gd<>uid://c80bkdr2w0wix::::res://sprites/tile_map/Background/CloudsBack.png<>uid://6pcrd6x44p4v::::res://prefabs/knight.tscn<>uid://p28hmyhh4q1g::::res://sprites/tile_map/Background/CloudsFront.png<>uid://bswmeaka2noa2::::res://prefabs/tile_map.tscn<>uid://dotx4s10su7hn::::res://sprites/tile_map/Foreground/Tileset.png<>uid://ci43oq71pvt1e::::res://sprites/tile_map/Background/BGBack.png<>uid://ctjukdieq53ix::::res://sprites/tile_map/Background/BGFront.png<>uid://cuu67gpdvkh2e::::res://prefabs/hud.tscn<>uid://cnbksh0m07brj::::res://sprites/tile_map/Foreground/Trees.png<>uid://bqeeobh644npf::::res://prefabs/game_over.tscn<>uid://82escn6ujk1q::::res://sounds/dead.wav<>uid://da57ehcuvt5gb::::res://sounds/newscore.wav
-::res://scripts/::1731711409
-game.gd::GDScript::-1::1731711409::0::1::::<>Node2D<>::
+::res://prefabs/::1731817854
+game_over.tscn::PackedScene::3517967626788981007::1731817854::0::1::::<><>::uid://c7psqoppvy46x::::res://fonts/Pixeled.ttf<>res://scripts/game_over.gd
+hud.tscn::PackedScene::6219845505885700854::1731817854::0::1::::<><>::uid://c7psqoppvy46x::::res://fonts/Pixeled.ttf
+knight.tscn::PackedScene::2206971818115730691::1731817854::0::1::::<><>::uid://c2mcemanx3qu6::::res://sprites/knight/_Run.png<>res://scripts/knight.gd<>uid://dk8yj3jnyksft::::res://sprites/knight/_Idle.png<>uid://bvtq0t8bg1nru::::res://sounds/jump.wav<>uid://b4wvxt1irdtlk::::res://sprites/knight/_JumpFallInbetween.png<>uid://d1lj77tek44sk::::res://sprites/knight/_Fall.png<>uid://b2x7mw3jwu0v1::::res://sprites/knight/_Jump.png<>uid://nsos56t1nckb::::res://sprites/knight/_Attack.png<>uid://byfpqa72qc4nd::::res://sprites/knight/_Attack2.png<>uid://dmgdog008jkfs::::res://sprites/knight/_Slide.png<>uid://ygitahfjchbi::::res://sprites/knight/_SlideTransitionStart.png<>res://scripts/hitbox.gd<>uid://dxvylffahpl2h::::res://sounds/slide.wav<>uid://bjw6djoxc110y::::res://sprites/knight/Dust Particle.png<>uid://crj18ip7bit25::::res://sounds/slash.wav
+obstacle_1.tscn::PackedScene::8255550939066896319::1731816028::0::1::::<><>::uid://bswmeaka2noa2::::res://prefabs/tile_map.tscn<>res://scripts/ground_obstacles.gd<>uid://dotx4s10su7hn::::res://sprites/tile_map/Foreground/Tileset.png<>uid://cnbksh0m07brj::::res://sprites/tile_map/Foreground/Trees.png
+obstacle_2.tscn::PackedScene::4804742941936372836::1731816028::0::1::::<><>::res://scripts/ground_obstacles.gd<>uid://bswmeaka2noa2::::res://prefabs/tile_map.tscn<>uid://dotx4s10su7hn::::res://sprites/tile_map/Foreground/Tileset.png<>uid://cnbksh0m07brj::::res://sprites/tile_map/Foreground/Trees.png
+obstacle_3.tscn::PackedScene::3533548992778952636::1731817854::0::1::::<><>::uid://byishrmfmcrac::::res://sprites/enemies/flying eye/fly-eye.png<>res://scripts/obstacle.gd<>res://scripts/hurtbox.gd
+blood_particles.tscn::PackedScene::8510606625647131640::1731817854::0::1::::<><>::uid://bjw6djoxc110y::::res://sprites/knight/Dust Particle.png<>res://scripts/blood.gd<>uid://du6niuobw25cb::::res://sounds/hurt.wav
+tile_map.tscn::PackedScene::3695971942340468587::1731817854::0::1::::<><>::uid://dotx4s10su7hn::::res://sprites/tile_map/Foreground/Tileset.png<>uid://cnbksh0m07brj::::res://sprites/tile_map/Foreground/Trees.png
+::res://scenes/::1731817854
+game.tscn::PackedScene::8747762989000832238::1731817854::0::1::::<><>::res://scripts/game.gd<>uid://mv16j5xjmnjr::::res://sounds/240 Bits Per Mile.mp3<>res://scripts/parallax_background.gd<>uid://c80bkdr2w0wix::::res://sprites/tile_map/Background/CloudsBack.png<>uid://6pcrd6x44p4v::::res://prefabs/knight.tscn<>uid://p28hmyhh4q1g::::res://sprites/tile_map/Background/CloudsFront.png<>uid://bswmeaka2noa2::::res://prefabs/tile_map.tscn<>uid://dotx4s10su7hn::::res://sprites/tile_map/Foreground/Tileset.png<>uid://ci43oq71pvt1e::::res://sprites/tile_map/Background/BGBack.png<>uid://ctjukdieq53ix::::res://sprites/tile_map/Background/BGFront.png<>uid://cuu67gpdvkh2e::::res://prefabs/hud.tscn<>uid://cnbksh0m07brj::::res://sprites/tile_map/Foreground/Trees.png<>uid://bqeeobh644npf::::res://prefabs/game_over.tscn<>uid://82escn6ujk1q::::res://sounds/dead.wav<>uid://da57ehcuvt5gb::::res://sounds/newscore.wav
+::res://scripts/::1731817646
+game.gd::GDScript::-1::1731815524::0::1::::<>Node2D<>::
 game_over.gd::GDScript::-1::1731693362::0::1::::<>CanvasLayer<>::
 hitbox.gd::GDScript::-1::1731696223::0::1::::HitBox<>Area2D<>::
-hurtbox.gd::GDScript::-1::1731711192::0::1::::HurtBox<>Area2D<>::
+hurtbox.gd::GDScript::-1::1731816962::0::1::::HurtBox<>Area2D<>::
 knight.gd::GDScript::-1::1731705820::0::1::::<>CharacterBody2D<>::
-obstacle.gd::GDScript::-1::1731696223::0::1::::<>Area2D<>::
+obstacle.gd::GDScript::-1::1731815665::0::1::::<>Area2D<>::
 parallax_background.gd::GDScript::-1::1731516488::0::1::::<>ParallaxBackground<>::
-::res://sounds/::1731691097
+ground_obstacles.gd::GDScript::-1::1731815608::0::1::::<>Area2D<>::
+blood.gd::GDScript::-1::1731817646::0::1::::<>CPUParticles2D<>::
+::res://sounds/::1731817810
 240 Bits Per Mile.mp3::AudioStreamMP3::887252578026436295::1731380277::1731380280::1::::<><>::
 dead.wav::AudioStreamWAV::2372245178240785364::1731537748::1731603583::1::::<><>::
+hurt.wav::AudioStreamWAV::8627839313643202581::1731537749::1731817810::1::::<><>::
 jump4.wav::AudioStreamWAV::3882168864344522594::1731537749::1731538189::1::::<><>::
 newscore.wav::AudioStreamWAV::7223143842335855917::1731537750::1731691097::1::::<><>::
 slash.wav::AudioStreamWAV::5986269126844554896::1731537751::1731688970::1::::<><>::
 slide.wav::AudioStreamWAV::8818434509499382641::1731537748::1731538202::1::::<><>::
 ::res://sprites/::1731539295
-::res://sprites/enemies/::1731638985
+::res://sprites/enemies/::1731818062
 ::res://sprites/enemies/flying eye/::1731638998
 fly-eye.png::CompressedTexture2D::4088574271143403958::1731638996::1731638998::1::::<><>::
+::res://sprites/enemies/ghost/::1731818063
+ghost.png::CompressedTexture2D::6664614804383848053::1731818063::1731818067::1::::<><>::
 ::res://sprites/knight/::1731636334
 _Attack2.png::CompressedTexture2D::4082214198052144161::1731370449::1731373445::1::::<><>::
 _Attack2NoMovement.png::CompressedTexture2D::8260506734745064941::1731370449::1731373445::1::::<><>::
@@ -69,5 +75,3 @@ CloudsFront.png::CompressedTexture2D::1110587682932796530::1731371122::173137112
 Tileset.png::CompressedTexture2D::8182578304941743323::1731371122::1731371126::1::::<><>::
 TilesExamples.png::CompressedTexture2D::7162289948532730303::1731371122::1731371126::1::::<><>::
 Trees.png::CompressedTexture2D::5688000433516090015::1731371122::1731371126::1::::<><>::
-::res://testing_videos/::1731644365
-::res://web/::1731644791

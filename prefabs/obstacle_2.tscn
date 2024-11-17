@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cappoc5ssj1ka"]
+[gd_scene load_steps=9 format=3 uid="uid://cappoc5ssj1ka"]
 
+[ext_resource type="Script" path="res://scripts/ground_obstacles.gd" id="1_hhbde"]
 [ext_resource type="PackedScene" uid="uid://bswmeaka2noa2" path="res://prefabs/tile_map.tscn" id="2_7id5a"]
 [ext_resource type="Texture2D" uid="uid://dotx4s10su7hn" path="res://sprites/tile_map/Foreground/Tileset.png" id="3_x3xl2"]
 [ext_resource type="Texture2D" uid="uid://cnbksh0m07brj" path="res://sprites/tile_map/Foreground/Trees.png" id="4_3prje"]
@@ -110,6 +111,7 @@ sources/1 = SubResource("TileSetAtlasSource_fuxwd")
 size = Vector2(60, 98)
 
 [node name="Obstacle" type="Area2D" groups=["Slashable"]]
+script = ExtResource("1_hhbde")
 
 [node name="TileMap" parent="." instance=ExtResource("2_7id5a")]
 texture_filter = 1
