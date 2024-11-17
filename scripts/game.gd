@@ -13,7 +13,8 @@ var ROCK = preload("res://prefabs/obstacle_1.tscn")
 var SNAIL = preload("res://prefabs/obstacle_2.tscn")
 var FLY_EYE = preload("res://prefabs/obstacle_3.tscn")
 var GHOST = preload("res://prefabs/obstacle_4.tscn")
-var OBSTACLE_TYPES := [ROCK, SNAIL]
+var BOX = preload("res://prefabs/obstacle_6.tscn")
+var OBSTACLE_TYPES := [ROCK, SNAIL, BOX]
 var FLY_TYPES := [FLY_EYE, GHOST]
 var FLY_HEIGHT := [210, 440]
 var obstacle_timer : float = 0.0
@@ -89,6 +90,7 @@ func _process(delta: float) -> void:
 		for OBS in OBSTACLES:
 			if OBS.to_remove:  # Verifica se o obstáculo está marcado para remoção
 				_remove_obstacle(OBS)
+				SCORE += 1000
 			elif OBS.position.x < ($Camera2D.position.x - SCREEN_SIZE.x):
 				_remove_obstacle(OBS)
 
@@ -129,7 +131,7 @@ func _generate_obstacles(delta: float) -> void:
 				var OBSTACLE_HEIGHT = OBS.get_node("CollisionShape2D").shape.size.y
 				var OBSTACLE_SCALE = OBS.get_node("CollisionShape2D").scale
 				var OBSTACLE_X = $Camera2D.position.x + SCREEN_SIZE.x + (i * 130)
-				var OBSTACLE_Y = SCREEN_SIZE.y - GROUND_HEIGHT - (OBSTACLE_HEIGHT * OBSTACLE_SCALE.y / 2) + 85
+				var OBSTACLE_Y = SCREEN_SIZE.y - GROUND_HEIGHT - (OBSTACLE_HEIGHT * OBSTACLE_SCALE.y / 2) + 100
 				LAST_OBSTACLE = OBS
 				_add_obstacle(OBS, OBSTACLE_X, OBSTACLE_Y)
 			

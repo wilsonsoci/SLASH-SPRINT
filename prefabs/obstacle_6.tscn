@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cappoc5ssj1ka"]
+[gd_scene load_steps=13 format=3 uid="uid://oacyofgq5ulk"]
 
-[ext_resource type="Script" path="res://scripts/ground_obstacles.gd" id="1_hhbde"]
-[ext_resource type="PackedScene" uid="uid://bswmeaka2noa2" path="res://prefabs/tile_map.tscn" id="2_7id5a"]
-[ext_resource type="Texture2D" uid="uid://dotx4s10su7hn" path="res://sprites/tile_map/Foreground/Tileset.png" id="3_x3xl2"]
-[ext_resource type="Texture2D" uid="uid://cnbksh0m07brj" path="res://sprites/tile_map/Foreground/Trees.png" id="4_3prje"]
-[ext_resource type="Texture2D" uid="uid://cjrts6xe6r6ko" path="res://sprites/tile_map/Foreground/TX Village Props.png" id="5_tyvf7"]
+[ext_resource type="Script" path="res://scripts/ground_obstacles.gd" id="1_1kirl"]
+[ext_resource type="PackedScene" uid="uid://bswmeaka2noa2" path="res://prefabs/tile_map.tscn" id="2_rfabh"]
+[ext_resource type="Texture2D" uid="uid://dotx4s10su7hn" path="res://sprites/tile_map/Foreground/Tileset.png" id="3_2gajv"]
+[ext_resource type="Texture2D" uid="uid://cnbksh0m07brj" path="res://sprites/tile_map/Foreground/Trees.png" id="4_wsbgv"]
+[ext_resource type="Texture2D" uid="uid://cjrts6xe6r6ko" path="res://sprites/tile_map/Foreground/TX Village Props.png" id="5_8h4w5"]
+[ext_resource type="Script" path="res://scripts/ground_hurtbox.gd" id="6_0kekv"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ix0q7"]
-texture = ExtResource("3_x3xl2")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwp0x"]
+texture = ExtResource("3_2gajv")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -60,8 +61,8 @@ texture = ExtResource("3_x3xl2")
 6:5/0 = 0
 7:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8i3r"]
-texture = ExtResource("4_3prje")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys4p3"]
+texture = ExtResource("4_wsbgv")
 11:1/0 = 0
 12:1/0 = 0
 13:1/0 = 0
@@ -104,8 +105,8 @@ texture = ExtResource("4_3prje")
 11:7/0 = 0
 12:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62b3l"]
-texture = ExtResource("5_tyvf7")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ooi1n"]
+texture = ExtResource("5_8h4w5")
 26:0/0 = 0
 27:0/0 = 0
 44:0/0 = 0
@@ -1415,29 +1416,40 @@ texture = ExtResource("5_tyvf7")
 62:60/0 = 0
 56:61/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_56qml"]
-sources/0 = SubResource("TileSetAtlasSource_ix0q7")
-sources/1 = SubResource("TileSetAtlasSource_v8i3r")
-sources/2 = SubResource("TileSetAtlasSource_62b3l")
+[sub_resource type="TileSet" id="TileSet_vv4ho"]
+sources/0 = SubResource("TileSetAtlasSource_dwp0x")
+sources/1 = SubResource("TileSetAtlasSource_ys4p3")
+sources/2 = SubResource("TileSetAtlasSource_ooi1n")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u362i"]
-size = Vector2(72, 118)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl7q7"]
+size = Vector2(202, 125)
 
-[node name="Obstacle" type="Area2D" groups=["Slashable"]]
-position = Vector2(0, -1)
-script = ExtResource("1_hhbde")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohh5a"]
+size = Vector2(28, 205)
 
-[node name="TileMap" parent="." instance=ExtResource("2_7id5a")]
+[node name="Obstacle" type="Area2D"]
+position = Vector2(0, -2)
+script = ExtResource("1_1kirl")
+
+[node name="TileMap" parent="." instance=ExtResource("2_rfabh")]
 texture_filter = 1
 scale = Vector2(4.5, 4.5)
-tile_set = SubResource("TileSet_56qml")
-layer_0/tile_data = PackedInt32Array(-65537, 1835010, 10, -1, 1835010, 11, -131072, 1900546, 10, -65536, 1900546, 11, -2, 1769474, 11, -65535, 1966082, 11)
+tile_set = SubResource("TileSet_vv4ho")
+layer_0/tile_data = PackedInt32Array(-1, 196610, 3, -65536, 262146, 3, -65537, 196610, 2, -131072, 262146, 2, -131074, 131074, 1, -65538, 131074, 2, -2, 131074, 3, -131073, 196610, 1, -196608, 262146, 1, -196607, 327682, 1, -131071, 327682, 2, -65535, 327682, 3)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, -61)
+shape = SubResource("RectangleShape2D_gl7q7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -54)
-shape = SubResource("RectangleShape2D_u362i")
+position = Vector2(1, -140.5)
+shape = SubResource("RectangleShape2D_gl7q7")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-77, 0, -77, -21, -64, -28, -64, -99, -28, -113, 25, -113, 63, -99, 63, -28, 77, -22, 79, 0)
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("6_0kekv")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-86, -101.5)
+shape = SubResource("RectangleShape2D_ohh5a")
+debug_color = Color(0.991833, 0, 0.260309, 0.42)
