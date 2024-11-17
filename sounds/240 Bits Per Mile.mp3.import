@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mv16j5xjmnjr"
+path="res://.godot/imported/240 Bits Per Mile.mp3-f3681afa4bdd197d9e147536f2de5710.mp3str"
+
+[deps]
+
+source_file="res://sounds/240 Bits Per Mile.mp3"
+dest_files=["res://.godot/imported/240 Bits Per Mile.mp3-f3681afa4bdd197d9e147536f2de5710.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqlxbhhkr0fcm"]
+
+[ext_resource type="Texture2D" uid="uid://byishrmfmcrac" path="res://sprites/enemies/flying eye/fly-eye.png" id="1_jqoev"]
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_wu8px"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="3_osgpy"]
+[ext_resource type="Texture2D" uid="uid://bjw6djoxc110y" path="res://sprites/knight/Dust Particle.png" id="4_xhptl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_661g2"]
+atlas = ExtResource("1_jqoev")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a6lq"]
+atlas = ExtResource("1_jqoev")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oomj"]
+atlas = ExtResource("1_jqoev")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofyl8"]
+atlas = ExtResource("1_jqoev")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_se0im"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_661g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a6lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oomj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofyl8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eoe72"]
+radius = 39.0128
+
+[sub_resource type="Gradient" id="Gradient_f2nxe"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0.588235)
+
+[node name="Obstacle" type="Area2D"]
+script = ExtResource("1_wu8px")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -44)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_se0im")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -47)
+shape = SubResource("CircleShape2D_eoe72")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("3_osgpy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, -47)
+shape = SubResource("CircleShape2D_eoe72")
+debug_color = Color(0.991833, 0, 0.260309, 0.42)
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+position = Vector2(1, -47)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource("4_xhptl")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+angle_max = 360.0
+scale_amount_min = 0.8
+scale_amount_max = 1.6
+color = Color(0.975664, 4.57242e-06, 1.54018e-06, 1)
+color_ramp = SubResource("Gradient_f2nxe")

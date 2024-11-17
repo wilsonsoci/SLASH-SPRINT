@@ -1,0 +1,8 @@
+res://prefabs/game_over.tscn::2fe6238e67830b3eb3d5b79040fe7cb5::1731643664::res://.godot/exported/133200997/export-7da0aaf155c786975f2c6c70ddc81a75-game_over.scn
+res://prefabs/hud.tscn::c87b61b25600fec87eaa6a54e162ed32::1731643664::res://.godot/exported/133200997/export-b3cbf7f01c3da0fa917ffd5e6ae4b8f8-hud.scn
+res://prefabs/knight.tscn::02122f774bf37c85c7bba45cf174d29c::1731643664::res://.godot/exported/133200997/export-035ff04b61ff5acad90fb0ebb9de6adc-knight.scn
+res://prefabs/obstacle_1.tscn::1c758640a31c1eccde37200f20358a54::1731638543::res://.godot/exported/133200997/export-f0e8971a0144eb1d0b81f49169c147aa-obstacle_1.scn
+res://prefabs/obstacle_2.tscn::a4e1093e8515e9df8417f44dd5aac318::1731643664::res://.godot/exported/133200997/export-4f82e975d00677b5949b7f6b7e433344-obstacle_2.scn
+res://prefabs/obstacle_3.tscn::9c775935d8fd143dfa4bdec0ff811386::1731643664::res://.godot/exported/133200997/export-5f31a2a6436df7ca4d92f77de0f91f63-obstacle_3.scn
+res://prefabs/tile_map.tscn::66a864f41ca13ac2c9695452d39ad975::1731643664::res://.godot/exported/133200997/export-0f4c728fe3c745562b32711ad8829d3b-tile_map.scn
+res://scenes/game.tscn::1834f3f636ccaf757e504532d1e46fc7::1731643664::res://.godot/exported/133200997/export-c2a7af834e91ff64325daddf58e45dc0-game.scn

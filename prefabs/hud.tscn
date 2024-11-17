@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuu67gpdvkh2e"]
+
+[ext_resource type="FontFile" uid="uid://c7psqoppvy46x" path="res://fonts/Pixeled.ttf" id="1_hql15"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Score" type="Label" parent="."]
+offset_left = 64.0
+offset_right = 256.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("1_hql15")
+theme_override_font_sizes/font_size = 32
+text = "SCORE: 0"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 320.0
+offset_right = 1376.0
+offset_bottom = 128.0
+
+[node name="HighScore" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_hql15")
+theme_override_font_sizes/font_size = 32
+text = "HIGH SCORE: 0"
+vertical_alignment = 1
+
+[node name="Start" type="Label" parent="."]
+offset_right = 1440.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_hql15")
+theme_override_font_sizes/font_size = 64
+text = "PRESS ENTER TO START"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true

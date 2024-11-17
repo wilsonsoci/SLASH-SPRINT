@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://cappoc5ssj1ka"]
+
+[ext_resource type="PackedScene" uid="uid://bswmeaka2noa2" path="res://prefabs/tile_map.tscn" id="2_7id5a"]
+[ext_resource type="Texture2D" uid="uid://dotx4s10su7hn" path="res://sprites/tile_map/Foreground/Tileset.png" id="3_x3xl2"]
+[ext_resource type="Texture2D" uid="uid://cnbksh0m07brj" path="res://sprites/tile_map/Foreground/Trees.png" id="4_3prje"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t57ib"]
+texture = ExtResource("3_x3xl2")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuxwd"]
+texture = ExtResource("4_3prje")
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+12:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kujph"]
+sources/0 = SubResource("TileSetAtlasSource_t57ib")
+sources/1 = SubResource("TileSetAtlasSource_fuxwd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u362i"]
+size = Vector2(60, 98)
+
+[node name="Obstacle" type="Area2D" groups=["Slashable"]]
+
+[node name="TileMap" parent="." instance=ExtResource("2_7id5a")]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_kujph")
+layer_0/tile_data = PackedInt32Array(-65536, 262144, 0, -131072, 65536, 0, -131071, 131072, 0, -65535, 131072, 1, -65537, 0, 0, -1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, -49)
+shape = SubResource("RectangleShape2D_u362i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-39, 0, -45, -12, -45, -42, -36, -72, -21, -90, -6, -96, 54, -96, 75, -78, 87, -57, 95, -39, 90, -18, 87, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

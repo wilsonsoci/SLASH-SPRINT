@@ -1,0 +1,14 @@
+Area2D
+AudioStreamPlayer2D
+Label
+CollisionPolygon2D
+Control
+AnimatedSprite2D
+CollisionShape2D
+CPUParticles2D
+StaticBody2D
+CanvasLayer
+Sprite2D
+ParallaxLayer
+ParallaxBackground
+TextureRect

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqeeobh644npf"]
+
+[ext_resource type="FontFile" uid="uid://c7psqoppvy46x" path="res://fonts/Pixeled.ttf" id="1_1n5gn"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_gkco7"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_gkco7")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1440.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1n5gn")
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="."]
+offset_top = 141.0
+offset_right = 1440.0
+offset_bottom = 720.0
+theme_override_fonts/font = ExtResource("1_1n5gn")
+theme_override_font_sizes/font_size = 32
+text = "NEW HIGH SCORE!!!"
+horizontal_alignment = 1
