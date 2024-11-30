@@ -9,7 +9,7 @@ const NORMAL_GRAVITY = 1800.0
 
 var is_slashing = false
 var slash_timer = 0.0
-const SLASH_DURATION = 0.25
+const SLASH_DURATION = 0.4
 
 var slash_count = 0  # Contador para slashes no ar
 const MAX_AIR_SLASHES = 2  # Limite de slashes no ar
@@ -23,11 +23,20 @@ var current_state = "idle"
 var transitioning = false
 
 func _ready() -> void:
+	# Configurar para desativar os hitboxes no início
 	slash.visible = false
-	aerial_slash.visible = false
 	slash.disabled = true
+	aerial_slash.visible = false
 	aerial_slash.disabled = true
-	slide.disabled = true
+
+func _activate_hitbox(state: bool) -> void:
+	# Liga ou desliga os hitboxes de ataque
+	if current_state == "slashing":
+		slash.visible = state
+		slash.disabled = not state
+	elif current_state == "slashing_on_air":
+		aerial_slash.visible = state
+		aerial_slash.disabled = not state
 
 func _physics_process(delta: float) -> void:
 	if not get_parent().GAME_START:
@@ -35,13 +44,24 @@ func _physics_process(delta: float) -> void:
 		anim.play("idle")
 		$RunParticles.emitting = false
 	else:
-		animation()
-		movement(delta)
+		_handle_animation()
+		_handle_movement(delta)
 
-func movement(delta):
+func _handle_movement(delta):
 	velocity.y += GRAVITY * delta
 
+	if is_slashing:
+		slash_timer -= delta
+
+		# Verifique o progresso do temporizador para ativar ou desativar o hitbox
+		if slash_timer <= SLASH_DURATION * 0.75 and slash_timer > SLASH_DURATION * 0.3: 
+			# Ativar hitbox no meio do ataque (ajuste os valores para o momento certo)
+			_activate_hitbox(true)
+		else:
+			_activate_hitbox(false)
+
 	if is_on_floor():
+		$FallParticles.emitting = false
 		$RunParticles.emitting = true
 		slash_count = 0  # Reseta o contador de slashes no ar ao tocar o chão
 		aerial_slash.visible = false
@@ -143,10 +163,11 @@ func movement(delta):
 
 			if Input.is_action_just_pressed("slide"):
 				GRAVITY *= 8
+				$FallParticles.emitting = true
 
 	move_and_slide()
 
-func animation():
+func _handle_animation():
 	if transitioning:
 		if not anim.is_playing():
 			transitioning = false

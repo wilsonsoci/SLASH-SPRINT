@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://6pcrd6x44p4v"]
+[gd_scene load_steps=64 format=3 uid="uid://6pcrd6x44p4v"]
 
 [ext_resource type="Texture2D" uid="uid://c2mcemanx3qu6" path="res://sprites/knight/_Run.png" id="1_asac2"]
 [ext_resource type="Script" path="res://scripts/knight.gd" id="1_ludxf"]
@@ -277,7 +277,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"slash",
-"speed": 20.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -294,7 +294,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"slash_on_air",
-"speed": 18.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -367,6 +367,9 @@ colors = PackedColorArray(0.877193, 0.877193, 0.877193, 1, 1, 1, 1, 0.588235)
 [sub_resource type="Gradient" id="Gradient_afyx5"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.588235)
 
+[sub_resource type="Gradient" id="Gradient_uqljp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.509804)
+
 [node name="Knight" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(451, 205)
@@ -378,7 +381,8 @@ stream = ExtResource("2_avyfo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uv6tr")
-animation = &"slide"
+animation = &"slash"
+frame = 2
 
 [node name="Sprint" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, 20.75)
@@ -401,10 +405,14 @@ shape = SubResource("RectangleShape2D_v7rfh")
 [node name="AerialSlash" type="Area2D" parent="."]
 collision_mask = 0
 script = ExtResource("12_j3ogb")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AerialSlash"]
 position = Vector2(40.5, 18.5)
 shape = SubResource("RectangleShape2D_v7rfh")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="SlideSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_maf7s")
@@ -436,6 +444,18 @@ angle_max = 360.0
 scale_amount_min = 0.8
 scale_amount_max = 1.6
 color_ramp = SubResource("Gradient_afyx5")
+
+[node name="FallParticles" type="CPUParticles2D" parent="."]
+position = Vector2(-5, 15)
+emitting = false
+amount = 12
+lifetime_randomness = 0.1
+texture = ExtResource("13_283ja")
+spread = 80.0
+angle_max = 360.0
+scale_amount_min = 0.8
+scale_amount_max = 1.6
+color_ramp = SubResource("Gradient_uqljp")
 
 [node name="SlashSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_yo1rm")

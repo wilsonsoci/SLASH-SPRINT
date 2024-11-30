@@ -70,10 +70,7 @@ func _process(delta: float) -> void:
 	if GAME_START:
 		elapsed_time += delta
 		
-		SPEED = START_SPEED + (elapsed_time * 10)
-		if SPEED >= MAX_SPEED:
-			SPEED = MAX_SPEED
-
+		_update_speed(delta)
 		_adjust_difficulty()
 		_generate_obstacles(delta)
 
@@ -105,13 +102,18 @@ func _process(delta: float) -> void:
 			START_BLINK = !START_BLINK
 
 			if START_BLINK:
-				$HUD.get_node("Start").modulate = Color(1, 1, 1)
+				$HUD.get_node("Start").visible = true
 			else:
-				$HUD.get_node("Start").modulate = Color(0, 0, 0)
+				$HUD.get_node("Start").visible = false
 
 		if Input.is_action_just_pressed("start"):
 			GAME_START = true
 			$Camera2D.get_node("AudioStreamPlayer2D").play()
+
+# Atualização apenas quando a velocidade realmente muda
+func _update_speed(delta):
+	var new_speed = START_SPEED + (elapsed_time * 10)
+	SPEED = clamp(new_speed, START_SPEED, MAX_SPEED)
 
 func _generate_obstacles(delta: float) -> void:
 	# Incrementa o temporizador com base no delta
@@ -126,14 +128,28 @@ func _generate_obstacles(delta: float) -> void:
 			var FTYPES = FLY_TYPES[randi() % FLY_TYPES.size()]
 			var OBS
 			var MAX = DIFFICULTY + 1
-			for i in range(randi() % MAX + 1):
+			
+			var num_obstacles = 1 if TYPES == BOX else randi() % MAX + 1
+			
+			
+			for i in range(num_obstacles):
 				OBS = TYPES.instantiate()
-				var OBSTACLE_HEIGHT = OBS.get_node("CollisionShape2D").shape.size.y
-				var OBSTACLE_SCALE = OBS.get_node("CollisionShape2D").scale
 				var OBSTACLE_X = $Camera2D.position.x + SCREEN_SIZE.x + (i * 130)
-				var OBSTACLE_Y = SCREEN_SIZE.y - GROUND_HEIGHT - (OBSTACLE_HEIGHT * OBSTACLE_SCALE.y / 2) + 100
-				LAST_OBSTACLE = OBS
-				_add_obstacle(OBS, OBSTACLE_X, OBSTACLE_Y)
+				var OBSTACLE_Y
+				
+				if TYPES == BOX:
+					var OBSTACLE_HEIGHT = OBS.get_node("CollisionShape2D").shape.size.y
+					var OBSTACLE_SCALE = OBS.get_node("CollisionShape2D").scale
+					OBSTACLE_Y = SCREEN_SIZE.y - GROUND_HEIGHT - (OBSTACLE_HEIGHT * OBSTACLE_SCALE.y / 2) + 100
+					LAST_OBSTACLE = OBS
+					_add_obstacle(OBS, OBSTACLE_X, OBSTACLE_Y)
+					break
+				else:
+					var OBSTACLE_HEIGHT = OBS.get_node("CollisionShape2D").shape.size.y
+					var OBSTACLE_SCALE = OBS.get_node("CollisionShape2D").scale
+					OBSTACLE_Y = SCREEN_SIZE.y - GROUND_HEIGHT - (OBSTACLE_HEIGHT * OBSTACLE_SCALE.y / 2) + 100
+					LAST_OBSTACLE = OBS
+					_add_obstacle(OBS, OBSTACLE_X, OBSTACLE_Y)
 			
 			if DIFFICULTY == MAX_DIFFICULTY:
 				if (randi() % 2) == 0:

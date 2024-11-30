@@ -1,6 +1,6 @@
 # SLASH SPRINT
 
-**Itch.io**: [Minha conta](https://wilsonsozz.itch.io)
+**Itch.io**: [Link do jogo](https://wilsonsozz.itch.io/slash-sprint)
 
 ---
 

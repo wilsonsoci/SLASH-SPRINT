@@ -1,5 +1,6 @@
-res://prefabs/obstacle_6.tscn
 res://scenes/game.tscn
+res://sprites/outline.gdshader
+res://scripts/knight.gd
 res://prefabs/knight.tscn
 res://prefabs/game_over.tscn
 res://prefabs/hud.tscn
@@ -8,4 +9,6 @@ res://prefabs/wood_particles.tscn
 res://prefabs/obstacle_2.tscn
 res://prefabs/obstacle_3.tscn
 res://prefabs/obstacle_1.tscn
+res://prefabs/obstacle_4.tscn
 res://scripts/game.gd
+res://prefabs/obstacle_6.tscn

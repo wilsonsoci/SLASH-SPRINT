@@ -1,7 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0epo0tlbymci"]
+[gd_scene load_steps=11 format=3 uid="uid://d0epo0tlbymci"]
 
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_odc0x"]
 [ext_resource type="Texture2D" uid="uid://c17nh5lcxqd46" path="res://sprites/enemies/ghost/ghost.png" id="1_u0mu6"]
+[ext_resource type="Shader" path="res://sprites/outline.gdshader" id="2_cxsvr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vdmg"]
+shader = ExtResource("2_cxsvr")
+shader_parameter/outline_width = 0.5
+shader_parameter/outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1t3m0"]
 atlas = ExtResource("1_u0mu6")
@@ -48,10 +54,11 @@ script = ExtResource("1_odc0x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_0vdmg")
 position = Vector2(0, -40)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_46qej")
-frame_progress = 0.0470977
+frame_progress = 0.856487
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -40)

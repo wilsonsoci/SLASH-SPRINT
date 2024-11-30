@@ -1,10 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpvbyn2aqshcp"]
+[gd_scene load_steps=13 format=3 uid="uid://dpvbyn2aqshcp"]
 
 [ext_resource type="PackedScene" uid="uid://bswmeaka2noa2" path="res://prefabs/tile_map.tscn" id="1_bumas"]
 [ext_resource type="Script" path="res://scripts/ground_obstacles.gd" id="1_hms1n"]
+[ext_resource type="Shader" path="res://sprites/outline.gdshader" id="1_impwb"]
 [ext_resource type="Texture2D" uid="uid://dotx4s10su7hn" path="res://sprites/tile_map/Foreground/Tileset.png" id="2_68uut"]
 [ext_resource type="Texture2D" uid="uid://cnbksh0m07brj" path="res://sprites/tile_map/Foreground/Trees.png" id="3_mdtdb"]
 [ext_resource type="Texture2D" uid="uid://cjrts6xe6r6ko" path="res://sprites/tile_map/Foreground/TX Village Props.png" id="5_ln1uv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7117s"]
+shader = ExtResource("1_impwb")
+shader_parameter/outline_width = 0.5
+shader_parameter/outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_her5c"]
 texture = ExtResource("2_68uut")
@@ -1429,13 +1435,16 @@ script = ExtResource("1_hms1n")
 
 [node name="TileMap" parent="." instance=ExtResource("1_bumas")]
 texture_filter = 1
+material = SubResource("ShaderMaterial_7117s")
 scale = Vector2(4.5, 4.5)
 tile_set = SubResource("TileSet_t1e7g")
 layer_0/tile_data = PackedInt32Array(-65537, 3604482, 22, -1, 3604482, 23, -131072, 3670018, 22, -65536, 3670018, 23, -65538, 3538946, 22, -2, 3538946, 23, -131071, 3735554, 22, -65535, 3735554, 23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -58.5)
 shape = SubResource("RectangleShape2D_mh2kd")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-71, -1, -100, -23, -99, -59, -40, -117, 22, -117, 47, -90, 70, -90, 108, -54, 109, -17, 81, -1)

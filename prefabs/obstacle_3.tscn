@@ -1,8 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqlxbhhkr0fcm"]
+[gd_scene load_steps=12 format=3 uid="uid://bqlxbhhkr0fcm"]
 
 [ext_resource type="Texture2D" uid="uid://byishrmfmcrac" path="res://sprites/enemies/flying eye/fly-eye.png" id="1_jqoev"]
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_wu8px"]
+[ext_resource type="Shader" path="res://sprites/outline.gdshader" id="2_j75rg"]
 [ext_resource type="Script" path="res://scripts/hurtbox.gd" id="3_osgpy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x6xw8"]
+shader = ExtResource("2_j75rg")
+shader_parameter/outline_width = 0.5
+shader_parameter/outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_661g2"]
 atlas = ExtResource("1_jqoev")
@@ -48,6 +54,7 @@ script = ExtResource("1_wu8px")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_x6xw8")
 position = Vector2(0, -44)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_se0im")

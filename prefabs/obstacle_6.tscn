@@ -1,11 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://oacyofgq5ulk"]
+[gd_scene load_steps=15 format=3 uid="uid://oacyofgq5ulk"]
 
 [ext_resource type="Script" path="res://scripts/ground_obstacles.gd" id="1_1kirl"]
 [ext_resource type="PackedScene" uid="uid://bswmeaka2noa2" path="res://prefabs/tile_map.tscn" id="2_rfabh"]
 [ext_resource type="Texture2D" uid="uid://dotx4s10su7hn" path="res://sprites/tile_map/Foreground/Tileset.png" id="3_2gajv"]
+[ext_resource type="Shader" path="res://sprites/outline.gdshader" id="3_ghjmy"]
 [ext_resource type="Texture2D" uid="uid://cnbksh0m07brj" path="res://sprites/tile_map/Foreground/Trees.png" id="4_wsbgv"]
 [ext_resource type="Texture2D" uid="uid://cjrts6xe6r6ko" path="res://sprites/tile_map/Foreground/TX Village Props.png" id="5_8h4w5"]
 [ext_resource type="Script" path="res://scripts/ground_hurtbox.gd" id="6_0kekv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ejnvp"]
+shader = ExtResource("3_ghjmy")
+shader_parameter/outline_width = 0.6
+shader_parameter/outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwp0x"]
 texture = ExtResource("3_2gajv")
@@ -1433,6 +1439,7 @@ script = ExtResource("1_1kirl")
 
 [node name="TileMap" parent="." instance=ExtResource("2_rfabh")]
 texture_filter = 1
+material = SubResource("ShaderMaterial_ejnvp")
 scale = Vector2(4.5, 4.5)
 tile_set = SubResource("TileSet_vv4ho")
 layer_0/tile_data = PackedInt32Array(-1, 196610, 3, -65536, 262146, 3, -65537, 196610, 2, -131072, 262146, 2, -131074, 131074, 1, -65538, 131074, 2, -2, 131074, 3, -131073, 196610, 1, -196608, 262146, 1, -196607, 327682, 1, -131071, 327682, 2, -65535, 327682, 3)
